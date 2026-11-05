@@ -1,184 +1,230 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website</title>
-    <script>
-        // Apni URLs niche quotation marks ke andar paste karein:
-        const TOS_URL = ""; 
-        const DISCORD_URL = ""; 
-    </script>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f172a;
-            color: #f8fafc;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 20px;
-            position: relative;
-        }
-
-        /* Top Left Header (Logo + Title/Icon) */
-        .header-left {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-            border-radius: 8px;
-        }
-
-        .site-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #e2e8f0;
-        }
-
-        /* Top Right Button */
-        .top-right-container {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-
-        .btn-top {
-            background-color: #3b82f6;
-            color: #ffffff;
-            border: none;
-            padding: 12px 24px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-top:hover {
-            background-color: #2563eb;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px -2px rgba(59, 130, 246, 0.4);
-        }
-
-        /* Main Center Content */
-        .main-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin-top: 80px;
-            margin-bottom: 100px;
-        }
-
-        .main-logo {
-            width: 120px;
-            height: 120px;
-            object-fit: contain;
-            margin-bottom: 24px;
-        }
-
-        /* Bottom Large Button Container */
-        .bottom-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            padding-bottom: 20px;
-        }
-
-        .btn-bottom-large {
-            background: linear-gradient(135deg, #5865f2 0%, #4752c4 100%);
-            color: #ffffff;
-            border: none;
-            padding: 20px 48px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 15px -3px rgba(88, 101, 242, 0.3);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            width: 100%;
-            max-width: 400px;
-            justify-content: center;
-        }
-
-        .btn-bottom-large:hover {
-            background: linear-gradient(135deg, #4752c4 0%, #3c45a5 100%);
-            transform: translateY(-3px);
-            box-shadow: 0 14px 20px -4px rgba(88, 101, 242, 0.5);
-        }
-
-        @media (max-width: 600px) {
-            .header-left {
-                position: static;
-                margin-bottom: 20px;
-            }
-            .top-right-container {
-                position: static;
-                margin-bottom: 20px;
-            }
-            body {
-                align-items: center;
-            }
-            .btn-bottom-large {
-                font-size: 1.2rem;
-                padding: 16px 32px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b16">
+  <meta name="description" content="HGB Systems — remote server management for Emergency Response: Liberty County.">
+  <title>HGB Systems | ERLC Server Management</title>
+  <style>
+    :root {
+      --bg: #080b16;
+      --panel: rgba(16, 22, 42, .78);
+      --panel-strong: #11182d;
+      --text: #eef3ff;
+      --muted: #9aa8c5;
+      --cyan: #39e7ff;
+      --purple: #a66bff;
+      --line: rgba(117, 151, 255, .19);
+      --glow: 0 0 28px rgba(57, 231, 255, .17);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0; color: var(--text); background:
+        radial-gradient(ellipse at 12% 8%, rgba(79, 58, 180, .22), transparent 36%),
+        radial-gradient(ellipse at 88% 24%, rgba(0, 190, 220, .13), transparent 34%),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65; min-height: 100vh;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
+      opacity: .17; background-image: linear-gradient(rgba(116,144,255,.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(116,144,255,.12) 1px, transparent 1px);
+      background-size: 54px 54px; mask-image: linear-gradient(to bottom, black, transparent 78%);
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 10; backdrop-filter: blur(18px);
+      background: rgba(8,11,22,.78); border-bottom: 1px solid var(--line);
+    }
+    .nav { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -.03em; }
+    .brand img { width: 42px; height: 42px; object-fit: contain; border-radius: 12px; }
+    .brand-mark { width: 42px; height: 42px; display: none; place-items: center; border-radius: 12px;
+      color: #061018; font-weight: 900; background: linear-gradient(135deg,var(--cyan),var(--purple)); }
+    .nav-links { display: flex; align-items: center; gap: 27px; color: var(--muted); font-size: .92rem; }
+    .nav-links a:hover, footer a:hover { color: var(--cyan); }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 12px 19px;
+      border: 1px solid rgba(57,231,255,.5); border-radius: 12px; color: #061018; font-weight: 800;
+      background: linear-gradient(110deg,var(--cyan),#8bf4ff); box-shadow: var(--glow); transition: .2s ease; }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 0 36px rgba(57,231,255,.3); }
+    .button.secondary { color: var(--text); background: rgba(255,255,255,.035); border-color: var(--line); box-shadow: none; }
+    .hero { padding: 112px 0 94px; text-align: center; position: relative; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; padding: 7px 13px; border: 1px solid var(--line);
+      border-radius: 999px; color: #b9c8e8; background: rgba(17,24,45,.65); font-size: .82rem; }
+    .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+    h1 { margin: 25px 0 8px; font-size: clamp(3.3rem, 9vw, 6.7rem); line-height: .99; letter-spacing: -.075em; }
+    .gradient { color: transparent; background: linear-gradient(100deg,#fff 15%,var(--cyan) 53%,#bd8bff 88%);
+      background-clip: text; -webkit-background-clip: text; }
+    .tagline { color: #c4cce0; font-size: clamp(1.05rem, 2.5vw, 1.35rem); margin: 18px auto 0; max-width: 720px; }
+    .hero-copy { max-width: 610px; margin: 15px auto 0; color: var(--muted); }
+    .hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 13px; margin-top: 31px; }
+    .hero-glow { position: absolute; width: 450px; height: 230px; left: 50%; top: 115px; transform: translateX(-50%);
+      background: rgba(70,120,255,.12); filter: blur(85px); z-index: -1; }
+    .section { padding: 40px 0 76px; }
+    .section-head { margin-bottom: 25px; }
+    .kicker { color: var(--cyan); text-transform: uppercase; letter-spacing: .17em; font-size: .74rem; font-weight: 800; }
+    h2 { margin: 7px 0 5px; font-size: clamp(1.8rem, 4vw, 2.55rem); letter-spacing: -.045em; }
+    .section-head p { margin: 0; color: var(--muted); }
+    .feature-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .card { padding: 23px; background: linear-gradient(145deg,rgba(20,29,54,.88),rgba(12,17,33,.82));
+      border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 12px 38px rgba(0,0,0,.12); }
+    .card-icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 13px;
+      color: var(--cyan); background: rgba(57,231,255,.09); border: 1px solid rgba(57,231,255,.18); font-size: 1.2rem; }
+    .card h3 { margin: 15px 0 5px; font-size: 1.08rem; }
+    .card p { margin: 0; color: var(--muted); font-size: .93rem; }
+    .policy { padding-top: 18px; }
+    .policy-intro { color: var(--muted); max-width: 790px; }
+    .effective { display: inline-block; margin-top: 10px; padding: 5px 10px; border: 1px solid var(--line);
+      border-radius: 8px; color: #c5d1ec; font-size: .82rem; }
+    .policy-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 15px; margin-top: 25px; }
+    .policy-card { padding: 23px 24px; background: var(--panel); border: 1px solid var(--line); border-radius: 17px; }
+    .policy-card h3 { margin: 0 0 10px; font-size: 1.04rem; color: #f2f6ff; }
+    .policy-card p { color: var(--muted); margin: 0 0 10px; font-size: .92rem; }
+    .policy-card ul { margin: 0; padding-left: 19px; color: var(--muted); font-size: .91rem; }
+    .policy-card li { padding: 3px 0 3px 3px; }
+    .wide { grid-column: 1 / -1; }
+    .contact { margin: 0 0 80px; padding: 34px; display: flex; align-items: center; justify-content: space-between; gap: 25px;
+      border: 1px solid rgba(166,107,255,.28); border-radius: var(--radius);
+      background: radial-gradient(ellipse at 100% 0%,rgba(166,107,255,.14),transparent 50%),var(--panel); }
+    .contact h2 { font-size: 1.7rem; margin: 0 0 5px; }
+    .contact p { color: var(--muted); margin: 0; }
+    footer { border-top: 1px solid var(--line); padding: 25px 0; color: var(--muted); font-size: .86rem; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+    .footer-links { display: flex; gap: 20px; }
+    @media (max-width: 760px) {
+      .nav-links { gap: 14px; } .nav-links a:not(.button) { display: none; }
+      .hero { padding: 82px 0 68px; } .feature-grid { grid-template-columns: 1fr; }
+      .policy-grid { grid-template-columns: 1fr; } .wide { grid-column: auto; }
+      .contact { align-items: flex-start; flex-direction: column; padding: 25px; }
+    }
+  </style>
 </head>
 <body>
-
-    <!-- Top Left Header (Logo & Icon) -->
-    <div class="header-left">
-        <img src="logo.png" alt="Logo" class="logo">
-        <span class="site-title">My Server</span>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="HGB Systems home">
+        <img src="logo.png" alt="HGB Systems logo" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+        <span class="brand-mark">HGB</span>
+        <span>HGB <span class="gradient">Systems</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#features">Platform</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#contact">Support</a>
+        <a class="button" href="#" id="nav-discord">Join Discord ↗</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- Top Right Corner Button -->
-    <div class="top-right-container">
-        <button class="btn-top" onclick="if(TOS_URL) window.location.href=TOS_URL; else alert('Kripya TOS_URL set karein!');">
-            Terms of Service
-        </button>
+  <main id="top">
+    <section class="hero wrap">
+      <div class="hero-glow"></div>
+      <div class="eyebrow"><span class="pulse"></span> BUILT FOR ERLC COMMUNITIES</div>
+      <h1><span class="gradient">HGB</span> Systems</h1>
+      <p class="tagline">Manage Your ERLC server without paying for sh*t.</p>
+      <p class="hero-copy">A remote server management system for Emergency Response: Liberty County — bringing server operations, moderation and community tools together.</p>
+      <div class="hero-actions">
+        <a class="button" href="#" id="hero-discord">Get started on Discord ↗</a>
+        <a class="button secondary" href="#privacy">Read privacy policy ↓</a>
+      </div>
+    </section>
+
+    <section class="section wrap" id="features">
+      <div class="section-head">
+        <span class="kicker">One system. More control.</span>
+        <h2>Tools for your server operations.</h2>
+        <p>HGB Systems supports the management workflows described in its privacy policy.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="card"><div class="card-icon">⌘</div><h3>Remote management</h3><p>Manage ERLC server activity and operations through the associated Discord application.</p></article>
+        <article class="card"><div class="card-icon">⬡</div><h3>Moderation & audit trails</h3><p>Keep warning records, moderation actions and server logs available to authorized staff.</p></article>
+        <article class="card"><div class="card-icon">◷</div><h3>Sessions & activity</h3><p>Support session tracking, player activity records, department systems and economy features.</p></article>
+      </div>
+    </section>
+
+    <section class="section wrap policy" id="privacy">
+      <div class="section-head">
+        <span class="kicker">Legal & transparency</span>
+        <h2>Privacy Policy</h2>
+        <p class="policy-intro">This policy explains how HGB Systems collects, uses, stores and protects information when you interact with its Discord application and associated services.</p>
+        <span class="effective">Effective date: November 6, 2026</span>
+      </div>
+      <div class="policy-grid">
+        <article class="policy-card">
+          <h3>1. Information We Collect</h3>
+          <p>We collect data necessary to provide remote server management, moderation, session tracking and economy features:</p>
+          <ul>
+            <li><strong>Discord User Information:</strong> User IDs, usernames and server (guild) IDs.</li>
+            <li><strong>Roblox Data:</strong> Roblox usernames, Roblox User IDs and verification link records (when linked via account verification).</li>
+            <li><strong>Server Logs & Moderation Data:</strong> Warning records, ban/kick logs, voided log history, action timestamps, and session logs (join/leave, kill logs, command executions and vehicle spawns).</li>
+            <li><strong>In-Game Activity & Economy:</strong> Discord economy data derived from ERLC session participation and server management activities.</li>
+          </ul>
+        </article>
+        <article class="policy-card">
+          <h3>2. How We Use Your Information</h3>
+          <p>We process collected data strictly to operate and improve HGB Systems:</p>
+          <ul>
+            <li>To log, moderate and track server and player activities within ERLC servers.</li>
+            <li>To execute automated moderation actions (e.g., auto-kicks based on warning thresholds).</li>
+            <li>To manage server sessions, department systems, CAD integration and economy features.</li>
+            <li>To maintain fuzzy-search lookups for Roblox usernames and IDs across moderation records.</li>
+          </ul>
+        </article>
+        <article class="policy-card">
+          <h3>3. Data Storage and Security</h3>
+          <ul>
+            <li><strong>Data Integrity:</strong> We store moderation logs securely and maintain a "Voided" status mechanism rather than permanent deletion to preserve server audit trails.</li>
+            <li><strong>Access Control:</strong> Log access is restricted to authorized server administrators and moderators based on configured permissions.</li>
+            <li><strong>Third-Party Services:</strong> We do not sell, rent or trade your personal information to third parties.</li>
+          </ul>
+        </article>
+        <article class="policy-card">
+          <h3>4. Data Retention and Deletion</h3>
+          <ul>
+            <li>Server administrators can manage, void or clear logs within the scope of their server configuration.</li>
+            <li>To request removal of linked account data or moderation history, contact the support team through the official HGB Systems Discord portal.</li>
+          </ul>
+        </article>
+        <article class="policy-card">
+          <h3>5. Changes to This Policy</h3>
+          <p>We may update this Privacy Policy periodically to reflect new features (such as CAD systems or economy updates). Continued use of HGB Systems constitutes acceptance of the revised policy.</p>
+        </article>
+        <article class="policy-card">
+          <h3>6. Contact Us</h3>
+          <p>If you have questions or concerns about this Privacy Policy, reach out via the HGB Systems Discord/community support portal.</p>
+          <a class="button secondary" href="#" id="policy-discord">Contact support ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap contact" id="contact">
+      <div><span class="kicker">Need a hand?</span><h2>Talk to the HGB community.</h2><p>Questions about the system or your data? Reach out through the official Discord portal.</p></div>
+      <a class="button" href="#" id="contact-discord">Open Discord ↗</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> HGB Systems. All rights reserved.</span>
+      <div class="footer-links"><a href="#privacy">Privacy Policy</a><a href="#" id="footer-terms">Terms of Service</a><a href="#" id="footer-discord">Discord</a></div>
     </div>
+  </footer>
 
-    <!-- Main Content Area -->
-    <main class="main-content">
-        <img src="logo.png" alt="Main Logo" class="main-logo">
-        <h1>Welcome to Community</h1>
-        <p style="color: #94a3b8; margin-top: 8px;">Join our community server today!</p>
-    </main>
+  <script>
+    // Set these two URLs before publishing your GitHub Pages site.
+    const DISCORD_SERVER_URL = "https://discord.gg/YOUR_INVITE_CODE";
+    const TERMS_OF_SERVICE_URL = "https://example.com/terms";
 
-    <!-- Bottom Center Large Button -->
-    <div class="bottom-container">
-        <button class="btn-bottom-large" onclick="if(DISCORD_URL) window.location.href=DISCORD_URL; else alert('Kripya DISCORD_URL set karein!');">
-            Discord Server
-        </button>
-    </div>
-
+    document.getElementById("year").textContent = new Date().getFullYear();
+    ["nav-discord", "hero-discord", "policy-discord", "contact-discord", "footer-discord"].forEach(id => {
+      document.getElementById(id).href = DISCORD_SERVER_URL;
+    });
+    document.getElementById("footer-terms").href = TERMS_OF_SERVICE_URL;
+  </script>
 </body>
 </html>
